@@ -1,8 +1,14 @@
-pipeline {
-    stage('Test') {
-        steps {
-            checkout scm
-            echo testing
-        }
-    }
+node('node') {
+
+   stage('Checkout'){
+
+	  checkout scm
+   }
+
+   stage('Test'){
+
+	 echo testing
+
+   }
+
 }
