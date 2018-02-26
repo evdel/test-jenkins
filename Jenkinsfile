@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                sh 'pip install pytest'
                 sh 'python --version'  
             }
         }
