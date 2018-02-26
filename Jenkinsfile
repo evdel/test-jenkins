@@ -1,14 +1,12 @@
-node('node') {
+pipeline {
+    agent any
 
-   stage('Checkout'){
-
-	  checkout scm
-   }
-
-   stage('Test'){
-
-	 echo testing
-
-   }
-
+    stages {
+        stage('Build') {
+            steps {
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+            }
+        }
+    }
 }
